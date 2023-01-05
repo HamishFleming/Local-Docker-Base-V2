@@ -1,0 +1,40 @@
+# Dynamic configuration
+http:
+  routers:
+    dashboard:
+      entryPoints:
+        - traefik
+      rule: PathPrefix(`/api`) || PathPrefix(`/dashboard`)
+      service: api@internal
+   # Define a catch-all router that forwards requests to legacy Traefik
+    to-traefik1:
+      rule: "HostRegexp(`{domain:.+}`)"
+      entrypoints:
+        - "web"
+      # If the rule matches, forward to the traefik1 service (see below)
+      service: traefik@docker
+      priority: 1
+   #
+    api-router:
+      rule: "PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
+      service: api@internal
+      # tls:
+        # certResolver: myresolver
+      entryPoints:
+        - web
+        # - websecure
+    # api-router1:
+    #   rule: "Host(`portainer.dev.local`) && PathPrefix(`/api`)"
+    #   entryPoints:
+    #     - web
+    #   service: api@internal
+    #   priority: 1
+    #
+    # api-router2:
+      # rule: "PathPrefix(`/api`) && !Host(`portainer.dev.local`)"
+      # entryPoints:
+      #   - web
+      # service: api@internal
+      # tls:
+      #   certResolver: myresolver
+    #

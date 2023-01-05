@@ -1,0 +1,39 @@
+# http:
+#   routers:
+#     traefik:
+#       rule: Host(`reverse-proxy.localhost`)
+#       entryPoints:
+#         - web
+#         - websecure
+#       middlewares:
+#         - redirect-to-https
+#       tls: true
+#       # tls:
+#         # insecureSkipVerify: true
+#       service: api@internal
+
+    # portainer:
+    #   rule: Host(`local-portainer.localhost`)
+    #   middlewares:
+    #     - redirect-to-https
+    #   tls: true
+    #   service: portainer@docker
+    # traefik:
+    #   rule: Host(`reverse-proxy.localhost`)
+    #   entryPoints:
+    #     - websecure
+    #   tls: true
+    #   # middlewares:
+    #     # - redirect-to-https@file
+    #   service: api@internal
+    #
+    # traefik-insecure:
+    #   rule: Host(`reverse-proxy.localhost`)
+    #   entryPoints:
+    #     - web
+    #   # redirectScheme:
+    #   #   scheme: https
+    #   #   permanent: true
+    #   middlewares:
+    #     - redirect-to-https
+    #   service: api@internal

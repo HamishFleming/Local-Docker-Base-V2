@@ -1,0 +1,104 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/hamish/ScratchPad/step-ca-example/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20220828.0/
+0	data/step-ca/config/ca.json	/^			"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",$/;"	s	array:tls.cipherSuites
+0	data/step-ca/config/ca.json	/^			{$/;"	o	array:authority.provisioners
+0	data/step-ca/config/ca.json	/^		"ca.dev.local"$/;"	s	array:dnsNames
+0	data/traefik/acme/acme.json	/^            "mailto:admin"$/;"	s	array:myresolver.Account.Registration.body.contact
+0	data/traefik/acme/acme.json	/^      {$/;"	o	array:myresolver.Certificates
+0.0.0.0	docker/authelia/configuration.yml	/^host: 0.0.0.0$/;"	s
+1	data/step-ca/config/ca.json	/^			"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"$/;"	s	array:tls.cipherSuites
+1	data/step-ca/config/ca.json	/^			{$/;"	o	array:authority.provisioners
+1	data/traefik/acme/acme.json	/^      {$/;"	o	array:myresolver.Certificates
+2	data/traefik/acme/acme.json	/^      {$/;"	o	array:myresolver.Certificates
+Account	data/traefik/acme/acme.json	/^    "Account": {$/;"	o	object:myresolver
+Add CA to your development environment	README.md	/^## Add CA to your development environment$/;"	s	chapter:Setup step-ca
+Add your password	README.md	/^### Add your password$/;"	S	section:Setup step-ca""Initialization from scratch
+Certificates	data/traefik/acme/acme.json	/^    "Certificates": [$/;"	a	object:myresolver
+Email	data/traefik/acme/acme.json	/^      "Email": "admin",$/;"	s	object:myresolver.Account
+Enable ACME provisioner	README.md	/^## Enable ACME provisioner$/;"	s	chapter:Setup step-ca
+Initialization from scratch	README.md	/^## Initialization from scratch$/;"	s	chapter:Setup step-ca
+Initializing step-ca from your own CA certificate and key	README.md	/^## Initializing step-ca from your own CA certificate and key$/;"	s	chapter:Setup step-ca
+KeyType	data/traefik/acme/acme.json	/^      "KeyType": "4096"$/;"	s	object:myresolver.Account
+PrivateKey	data/traefik/acme/acme.json	/^      "PrivateKey": "MIIJJwIBAAKCAgEA1gZ2pbs1a4nP\/Bv1h37J7jsETMwQw38bBR8e4gROsm7EnO3h7Eog9P6jGa/;"	s	object:myresolver.Account
+References	README.md	/^## References$/;"	s	chapter:Setup step-ca
+Registration	data/traefik/acme/acme.json	/^      "Registration": {$/;"	o	object:myresolver.Account
+Run traefik first	README.md	/^### Run traefik first$/;"	S	section:Setup step-ca""Add CA to your development environment
+Setup step-ca	README.md	/^# Setup step-ca$/;"	c
+Start your step-ca Instance	README.md	/^## Start your step-ca Instance$/;"	s	chapter:Setup step-ca
+Store	data/traefik/acme/acme.json	/^        "Store": "default"$/;"	s	object:myresolver.Certificates.0
+Store	data/traefik/acme/acme.json	/^        "Store": "default"$/;"	s	object:myresolver.Certificates.1
+Store	data/traefik/acme/acme.json	/^        "Store": "default"$/;"	s	object:myresolver.Certificates.2
+address	data/step-ca/config/ca.json	/^	"address": ":9000",$/;"	s
+alg	data/step-ca/config/ca.json	/^					"alg": "ES256",$/;"	s	object:authority.provisioners.0.key
+allowRenewalAfterExpiry	data/step-ca/config/ca.json	/^					"allowRenewalAfterExpiry": false$/;"	b	object:authority.provisioners.1.claims
+authority	data/step-ca/config/ca.json	/^	"authority": {$/;"	o
+backdate	data/step-ca/config/ca.json	/^		"backdate": "1m0s"$/;"	s	object:authority
+badgerFileLoadingMode	data/step-ca/config/ca.json	/^		"badgerFileLoadingMode": ""$/;"	s	object:db
+body	data/traefik/acme/acme.json	/^        "body": {$/;"	o	object:myresolver.Account.Registration
+ca-config	data/step-ca/config/defaults.json	/^	"ca-config": "\/home\/step\/config\/ca.json",$/;"	s
+ca-url	data/step-ca/config/defaults.json	/^	"ca-url": "https:\/\/ca.dev.local:9000",$/;"	s
+certificate	data/traefik/acme/acme.json	/^        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUR5VENDQTNDZ0F3SUJBZ0lSQVB5MzZu/;"	s	object:myresolver.Certificates.1
+certificate	data/traefik/acme/acme.json	/^        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUR5ekNDQTNHZ0F3SUJBZ0lRSEt4a2Np/;"	s	object:myresolver.Certificates.0
+certificate	data/traefik/acme/acme.json	/^        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUR6ekNDQTNXZ0F3SUJBZ0lRQzJCT0d1/;"	s	object:myresolver.Certificates.2
+cipherSuites	data/step-ca/config/ca.json	/^		"cipherSuites": [$/;"	a	object:tls
+claims	data/step-ca/config/ca.json	/^				"claims": {$/;"	o	object:authority.provisioners.1
+commonName	data/step-ca/config/ca.json	/^	"commonName": "Step Online CA"$/;"	s
+contact	data/traefik/acme/acme.json	/^          "contact": [$/;"	a	object:myresolver.Account.Registration.body
+crt	data/step-ca/config/ca.json	/^	"crt": "\/home\/step\/certs\/intermediate_ca.crt",$/;"	s
+crv	data/step-ca/config/ca.json	/^					"crv": "P-256",$/;"	s	object:authority.provisioners.0.key
+dataSource	data/step-ca/config/ca.json	/^		"dataSource": "\/home\/step\/db",$/;"	s	object:db
+db	data/step-ca/config/ca.json	/^	"db": {$/;"	o
+disableRenewal	data/step-ca/config/ca.json	/^					"disableRenewal": false,$/;"	b	object:authority.provisioners.1.claims
+dnsNames	data/step-ca/config/ca.json	/^	"dnsNames": [$/;"	a
+domain	data/traefik/acme/acme.json	/^        "domain": {$/;"	o	object:myresolver.Certificates.0
+domain	data/traefik/acme/acme.json	/^        "domain": {$/;"	o	object:myresolver.Certificates.1
+domain	data/traefik/acme/acme.json	/^        "domain": {$/;"	o	object:myresolver.Certificates.2
+enableSSHCA	data/step-ca/config/ca.json	/^					"enableSSHCA": true,$/;"	b	object:authority.provisioners.1.claims
+encryptedKey	data/step-ca/config/ca.json	/^				"encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZ/;"	s	object:authority.provisioners.0
+federatedRoots	data/step-ca/config/ca.json	/^	"federatedRoots": null,$/;"	z
+fingerprint	data/step-ca/config/defaults.json	/^	"fingerprint": "623194d45e31d057ad2e420fb1413ecea847d19467e69b11f92e4fb50adc0e7c",$/;"	s
+format	data/step-ca/config/ca.json	/^		"format": "text"$/;"	s	object:logger
+insecureAddress	data/step-ca/config/ca.json	/^	"insecureAddress": "",$/;"	s
+key	data/step-ca/config/ca.json	/^				"key": {$/;"	o	object:authority.provisioners.0
+key	data/step-ca/config/ca.json	/^	"key": "\/home\/step\/secrets\/intermediate_ca_key",$/;"	s
+key	data/traefik/acme/acme.json	/^        "key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS1FJQkFBS0NBZ0VBeWtwKzA5V1kxMm5r/;"	s	object:myresolver.Certificates.0
+key	data/traefik/acme/acme.json	/^        "key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS1FJQkFBS0NBZ0VBeklwNkJLVFhaSG03/;"	s	object:myresolver.Certificates.1
+key	data/traefik/acme/acme.json	/^        "key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS3dJQkFBS0NBZ0VBeVFOek1XU2ZMQmpZ/;"	s	object:myresolver.Certificates.2
+kid	data/step-ca/config/ca.json	/^					"kid": "h1CnaSxLuZXEvNbyxZvPw_Hx0s5NbQ1eBm6O4sI59Pg",$/;"	s	object:authority.provisioners.0.key
+kty	data/step-ca/config/ca.json	/^					"kty": "EC",$/;"	s	object:authority.provisioners.0.key
+logger	data/step-ca/config/ca.json	/^	"logger": {$/;"	o
+main	data/traefik/acme/acme.json	/^          "main": "portainer.dev.local"$/;"	s	object:myresolver.Certificates.2.domain
+main	data/traefik/acme/acme.json	/^          "main": "traefik.dev.local"$/;"	s	object:myresolver.Certificates.0.domain
+main	data/traefik/acme/acme.json	/^          "main": "whoami.dev.local"$/;"	s	object:myresolver.Certificates.1.domain
+maxVersion	data/step-ca/config/ca.json	/^		"maxVersion": 1.3,$/;"	n	object:tls
+minVersion	data/step-ca/config/ca.json	/^		"minVersion": 1.2,$/;"	n	object:tls
+myresolver	data/traefik/acme/acme.json	/^  "myresolver": {$/;"	o
+name	data/step-ca/config/ca.json	/^				"name": "acme",$/;"	s	object:authority.provisioners.1
+name	data/step-ca/config/ca.json	/^				"name": "dev",$/;"	s	object:authority.provisioners.0
+options	data/step-ca/config/ca.json	/^				"options": {$/;"	o	object:authority.provisioners.1
+orders	data/traefik/acme/acme.json	/^          "orders": "https:\/\/ca.dev.local:9000\/acme\/acme\/account\/mlkphgiM441rWcsnkvw9tN36e/;"	s	object:myresolver.Account.Registration.body
+provisioners	data/step-ca/config/ca.json	/^		"provisioners": [$/;"	a	object:authority
+renegotiation	data/step-ca/config/ca.json	/^		"renegotiation": false$/;"	b	object:tls
+root	data/step-ca/config/ca.json	/^	"root": "\/home\/step\/certs\/root_ca.crt",$/;"	s
+root	data/step-ca/config/defaults.json	/^	"root": "\/home\/step\/certs\/root_ca.crt"$/;"	s
+ssh	data/step-ca/config/ca.json	/^					"ssh": {}$/;"	o	object:authority.provisioners.1.options
+status	data/traefik/acme/acme.json	/^          "status": "valid",$/;"	s	object:myresolver.Account.Registration.body
+template	data/step-ca/config/ca.json	/^		"template": {},$/;"	o	object:authority
+tls	data/step-ca/config/ca.json	/^	"tls": {$/;"	o
+type	data/step-ca/config/ca.json	/^				"type": "ACME",$/;"	s	object:authority.provisioners.1
+type	data/step-ca/config/ca.json	/^				"type": "JWK",$/;"	s	object:authority.provisioners.0
+type	data/step-ca/config/ca.json	/^		"type": "badgerv2",$/;"	s	object:db
+uri	data/traefik/acme/acme.json	/^        "uri": "https:\/\/ca.dev.local:9000\/acme\/acme\/account\/mlkphgiM441rWcsnkvw9tN36enfTH9/;"	s	object:myresolver.Account.Registration
+use	data/step-ca/config/ca.json	/^					"use": "sig",$/;"	s	object:authority.provisioners.0.key
+x	data/step-ca/config/ca.json	/^					"x": "M63VJkxAQdKQmFpM37bO9ahmjYY7M33njSkSpMwbSoU",$/;"	s	object:authority.provisioners.0.key
+x509	data/step-ca/config/ca.json	/^					"x509": {},$/;"	o	object:authority.provisioners.1.options
+y	data/step-ca/config/ca.json	/^					"y": "atqa-yQUmDV4yuJ0wP9LkpOJDmXc4LGpEcC-yiOhrOg"$/;"	s	object:authority.provisioners.0.key
