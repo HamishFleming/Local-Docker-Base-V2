@@ -10,16 +10,19 @@ services:
     networks:
       static-network:
         aliases:
-          - "ca"
+          - "ca.dev.local"
       traefik-net:
         aliases:
           - "ca.dev.local"
+    expose:
+      - 9000
     ports:
       - 9000:9000
     volumes:
       - ./data/step-ca:/home/step
     labels:
       - "traefik.enable=true"
+      - 'traefik.docker.network=traf-external'
       - "traefik.http.routers.ca-web.entrypoints=web"
       - "traefik.http.routers.ca-web.rule=Host(`ca.dev.local`)"
 
@@ -63,8 +66,14 @@ services:
           - "traefik.dev.local"
           - "whoami.dev.local"
           - "portainer.dev.local"
+          - "files.dev.local"
+          - "sonnar.dev.local"
+          - "auth.dev.local"
+          - "test.dev.local"
+          - "mse.dev.local"
+          - "ca.dev.local"
     command:
-      # - "--api.insecure=true"
+      - "--api.insecure=true"
       - "--api.dashboard=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -80,7 +89,7 @@ services:
       - "--certificatesResolvers.myresolver.acme.storage=/etc/acme/acme.json"
       - "--certificatesresolvers.myresolver.acme.caserver=https://ca.dev.local:9000/acme/acme/directory"
       - "--certificatesResolvers.myresolver.acme.httpChallenge=true"
-      - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=web"
+      - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=websecure"
     ports:
       - "80:80"
       - "443:443"
@@ -139,6 +148,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
       - ./docker/portainer/data:/data
+    ports:
+      - 9001:9000
     networks:
       traefik-net:
         aliases:
@@ -241,6 +252,7 @@ services:
       traefik-net:
     labels:
       - traefik.enable=true
+      # - traefik.docker.network=traf-external
       ## Routers Rules
       - traefik.http.routers.authelia.rule=Host(`auth.$DOMAINNAME`)
       - traefik.http.routers.authelia.entrypoints=web,websecure
@@ -327,6 +339,8 @@ volumes:
 # $ docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 proxy
 networks:
   mailhog:
+    external: true
+    name: mailhog
   traefik-net:
     external: true
     name: traf-external

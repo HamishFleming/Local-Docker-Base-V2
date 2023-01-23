@@ -3,7 +3,13 @@
 ################################################################
 log:
   # (Default: error) DEBUG, INFO, WARN, ERROR, FATAL, PANIC
-  level: ERROR
+  level: WARN
+
+experimental:
+  plugins:
+    sablier:
+      moduleName: "github.com/acouvreur/sablier"
+      version: "v1.2.0"
 
 global:
   checkNewVersion: true
@@ -26,7 +32,7 @@ accessLog:
 ################################################################
 api:
   dashboard: true
-  insecure: false
+  insecure: true
 entryPoints:
   web:
     address: ":80"
@@ -60,6 +66,7 @@ certificatesResolvers:
       caserver: https://ca.dev.local:9000/acme/acme/directory
       httpChallenge:
         entryPoint: web
+      dnsChallenge: true
 
 
 ################################################################

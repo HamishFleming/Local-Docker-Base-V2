@@ -1,17 +1,21 @@
-# http:
-#   routers:
-#     traefik:
-#       rule: Host(`reverse-proxy.localhost`)
-#       entryPoints:
-#         - web
-#         - websecure
-#       middlewares:
-#         - redirect-to-https
-#       tls: true
-#       # tls:
-#         # insecureSkipVerify: true
-#       service: api@internal
-
+http:
+  routers:
+    dashboard:
+      rule: Host(`traefik.dev.local`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+      service: api@internal
+  # routers:
+  #   traefik:
+  #     rule: Host(`reverse-proxy.localhost`)
+  #     entryPoints:
+  #       - web
+  #       - websecure
+  #     middlewares:
+  #       - redirect-to-https
+  #     tls: true
+  #     # tls:
+  #       # insecureSkipVerify: true
+  #     service: api@internal
+  #
     # portainer:
     #   rule: Host(`local-portainer.localhost`)
     #   middlewares:

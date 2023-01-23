@@ -39,6 +39,10 @@ access_control:
       policy: one-_factor
     - domain: phpmyadmin.dev.local
       policy: one_factor
+    - domain: files.dev.local
+      policy: one_factor
+    - domain: "*.dev.local"
+      policy: one_factor
     # - domain: localhost
     #   policy: two_factor
 
