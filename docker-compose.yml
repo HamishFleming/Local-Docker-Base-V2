@@ -268,6 +268,7 @@ services:
       - 9091
     environment:
       - TZ=$TZ
+      - AUTHELIA_THEME=dark
     volumes:
       - ./docker/authelia/authelia:/var/lib/authelia
       - ./docker/authelia/configuration.yml:/etc/authelia/configuration.yml:ro
@@ -392,7 +393,7 @@ services:
       LDAP_ORGANISATION: "dev" # Org name
       LDAP_DOMAIN: "dev.local" # domain.tld
       LDAP_BASE_DN: "dc=dev,dc=local" # edit domain tld
-      LDAP_LOG_LEVEL: "-1"
+      # LDAP_LOG_LEVEL: "-1"
       # LDAP_ADMIN_PASSWORD: "toor" # password for admin@domain.tld
       # LDAP_CONFIG_PASSWORD: "toor" # password for config (not sure what this does)
       # LDAP_TLS_VERIFY_CLIENT: "try"
