@@ -12,9 +12,13 @@ services:
       static-network:
         aliases:
           - "ca.dev.local"
-      traefik-net:
+      traf-external:
         aliases:
           - "ca.dev.local"
+    # dns:
+    #   - 11.100.100.10
+    extra_hosts:
+      - "*.dev.local:11.100.100.10"
     expose:
       - 9000
     ports:
@@ -67,7 +71,7 @@ services:
     networks:
       static-network:
         ipv4_address: 11.100.100.10
-      traefik-net:
+      traf-external:
         aliases:
           - "traefik"
           - "traefik.dev.local"
@@ -77,9 +81,15 @@ services:
           - "sonnar.dev.local"
           - "auth.dev.local"
           - "test.dev.local"
+          - "bedb.dev.local"
           - "mse.dev.local"
+          - "stock.dev.local"
+          - "dr.dev.local"
+          - "drdb.dev.local"
+          - "msv.dev.local"
           - "msfm.dev.local"
           - "msfmdb.dev.local"
+          - "msfdb.dev.local"
           - "ca.dev.local"
           - "db.dev.local"
           - "te.dev.local"
@@ -87,6 +97,10 @@ services:
           - "heimdall.dev.local"
           - "mailhog.dev.local"
           - "admin-ldap.dev.local"
+          - "myvault.dev.local"
+          - "keycloak.dev.local"
+          - "jellyfinn.dev.local"
+
     command:
       - "--api.insecure=true"
       - "--api.dashboard=true"
@@ -141,7 +155,7 @@ services:
     image: containous/whoami:latest
     hostname: "whoami1"
     networks:
-      traefik-net:
+      - traf-external
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami0.entrypoints=web"
@@ -166,7 +180,7 @@ services:
     ports:
       - 9001:9000
     networks:
-      traefik-net:
+      traf-external:
         aliases:
           - "portainer.dev.local"
     labels:
@@ -191,7 +205,7 @@ services:
     hostname: authelia_mariadb
     restart: always
     networks:
-      traefik-net:
+      - traf-external
     volumes:
       - ./docker/mariadb/config:/config
       - ./docker/mariadb/mysql:/var/lib/mysql
@@ -214,10 +228,9 @@ services:
     expose:
       - 80
     networks:
-      traefik-net:
+      - traf-external
     environment:
       PMA_HOSTS: authelia_mariadb
-    environment:
       UPLOAD_LIMIT: 1G
       PMA_ARBITRARY: 1
       PMA_DB_ENGINE: mysql
@@ -246,7 +259,7 @@ services:
     volumes:
       - ./docker/redis:/data
     networks:
-      traefik-net:
+      - traf-external
     expose:
       - 6379
     environment:
@@ -274,7 +287,7 @@ services:
       - ./docker/authelia/configuration.yml:/etc/authelia/configuration.yml:ro
       - ./docker/authelia/users_database.yml:/etc/authelia/users_database.yml
     networks:
-      traefik-net:
+      - traf-external
     labels:
       - traefik.enable=true
       - traefik.http.routers.authelia.rule=Host(`auth.$DOMAINNAME`)
@@ -287,7 +300,7 @@ services:
     image: amir20/dozzle:$DOZZLEVERSION
     restart: always
     networks:
-      traefik-net:
+      - traf-external
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
@@ -303,7 +316,7 @@ services:
       - 8025
       - 1025
     networks:
-      traefik-net:
+      traf-external:
         aliases:
           - "mailhog.dev.local"
       mailhog:
@@ -323,7 +336,7 @@ services:
       - traefik.http.routers.mailhog.middlewares=middlewares-https-redirect@file
       - traefik.http.routers.mailhog-secure.middlewares=chain-authelia@file
 ####whoami test in front page
-  whoami:
+  whoami2:
     container_name: frontpage
     image: containous/whoami
     restart: always
@@ -332,7 +345,7 @@ services:
     expose:
       - 80
     networks:
-      traefik-net:
+      - traf-external
     labels:
       - traefik.enable=true
       ## Routers Rules
@@ -357,7 +370,7 @@ services:
     depends_on:
       - traefik
     networks:
-      traefik-net:
+      traf-external:
         aliases:
           - "heimdall.dev.local"
     labels:
@@ -383,7 +396,7 @@ services:
       - ./data/ldap/db:/var/lib/ldap
       - ./data/ldap/conf:/etc/ldap/slapd.d
     networks:
-      traefik-net:
+      - traf-external
     expose:
       - 389
       - 636
@@ -409,7 +422,7 @@ services:
   ldap-php:
     image: osixia/phpldapadmin
     networks:
-      traefik-net:
+      - traf-external
     ports:
       - 8786:80
     depends_on:
@@ -421,7 +434,7 @@ services:
     image: wheelybird/ldap-user-manager:next_release
     container_name: ldap-user-manager
     networks:
-      traefik-net:
+      - traf-external
     ports:
       - 8785:80
     restart: always
@@ -466,7 +479,6 @@ services:
 
 volumes:
   portainer_data:
-
 ########################### NETWORKS
 # Create proxy network
 # $ docker network create --gateway 192.168.90.1 --subnet 192.168.90.0/24 traf-external
@@ -474,7 +486,7 @@ networks:
   mailhog:
     external: true
     name: mailhog
-  traefik-net:
+  traf-external:
     external: true
     name: traf-external
     # name: traf-external

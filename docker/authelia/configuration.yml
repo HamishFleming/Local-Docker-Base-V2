@@ -43,6 +43,8 @@ access_control:
       policy: one_factor
     - domain: "*.dev.local"
       policy: one_factor
+    - domain: dev.local
+      policy: one_factor
     # - domain: localhost
     #   policy: two_factor
 session:

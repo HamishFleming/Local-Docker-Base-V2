@@ -48,7 +48,7 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
     swarmMode: false
-    network: traefik-net
+    network: traf-external
     defaultRule: "Host(`{{ .Name }}.{{ index .Labels \"com.docker.compose.service\"}}.dev.local`)"
   file:
     directory: /configurations/
